@@ -11,15 +11,21 @@ namespace MinimalCakeShopWeb.Services
             _httpClient = httpClient;
         }
 
-        public async Task<CakeShop> AddCakeShop()
+        public async Task<HttpResponseMessage> GetCakeShop()
         {
-            // return  await _httpClient.GetAsync($"/getCakeShop");
-            throw new NotImplementedException();
+            var cakeShopAddition = await _httpClient.GetAsync($"/getCakeShop");
+            if (cakeShopAddition == null)
+            {
+                throw new Exception("message was not received");
+            }
+            return cakeShopAddition;
         }
 
-        public Task<IEnumerable<CakeShop>> GetAllCakeShop()
+        public async Task<IEnumerable<CakeShop>> GetAllCakeShop()
         {
-            throw new NotImplementedException();
+            // var result = await _httpClient.GetFromJsonAsync<CakeShop>($"/");
+            // return result;
+            throw new ArgumentNullException();
         }
     }
 }

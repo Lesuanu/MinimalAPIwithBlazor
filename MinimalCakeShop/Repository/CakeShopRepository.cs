@@ -45,7 +45,11 @@ namespace MinimalCakeShop.Repository
         public async Task<CakeShop> GetShopById(Guid id)
         {
             var shopExist = await _context.CakeShops.FirstOrDefaultAsync(x => x.Id == id);
-            return shopExist ??= shopExist;
+            if (shopExist == null)
+            {
+                return null;
+            }
+            return shopExist;
         }
 
         public async Task<CakeShop> UpdateShop(Guid id, CakeShop cakeShop)

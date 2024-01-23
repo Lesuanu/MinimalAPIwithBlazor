@@ -12,7 +12,7 @@ namespace MinimalCakeShop.Infrastructure.EntityConfiguration
 
             builder.Property(x => x.ShopName).IsRequired();
 
-            builder.Property(x => x.ShoDescription).IsRequired();   
+            builder.Property(x => x.ShoDescription).IsRequired();
 
             builder.Property(x => x.CreatedOn).IsRequired();
         }

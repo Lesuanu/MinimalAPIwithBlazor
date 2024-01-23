@@ -22,7 +22,8 @@ namespace MinimalCakeShop.Endpoint.CakeShopEndpoint
 
         public async Task<IResult> GetAllCakeShop()
         {
-            return Results.Ok("Welcome to my cake shop");
+            var result = await _repository.GetShop();
+            return Results.Ok(result);
         }
 
         public Task<IResult> GetCakeShopById(int id)
